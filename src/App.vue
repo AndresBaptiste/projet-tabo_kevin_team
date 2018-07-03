@@ -9,14 +9,17 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Anime <span class="sr-only">(current)</span></a>
+      <a>  <router-link to="/" class="nav-link" >Anime <span class="sr-only">(current)</span></router-link> </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Manga</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Favoris</a>
+        <li class="nav-item">
+       <router-link to="/about" class="nav-link" >About</router-link> 
       </li>
+   
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" placeholder="Search" type="text">
@@ -26,8 +29,8 @@
 
 </nav>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+
+     
     </div>
     <router-view/>
   </div>
