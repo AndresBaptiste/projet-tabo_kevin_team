@@ -15,7 +15,7 @@
         <a class="nav-link" href="#">Manga</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Favoris</a>
+         <router-link to="/favoris" class="nav-link" >Favoris</router-link>
         <li class="nav-item">
        <router-link to="/about" class="nav-link" >About</router-link> 
       </li>
