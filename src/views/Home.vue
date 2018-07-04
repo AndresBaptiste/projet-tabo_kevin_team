@@ -8,8 +8,8 @@
            </anime-card> 
 				</div>
 			</div>
-	</div>
-</div>
+	  </div>
+  </div>
 </template>
 
 <script>
@@ -33,20 +33,33 @@ export default {
     getTop10() {
       axios
         .get(
-          "https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0&sort=popularityRank&include=genres"
+          "https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0&sort=popularityRank&include=genres,categories&filter[text]=cowboy"
         )
         .then(response => {
-          var listAnime = response.data.data;
-          //var listGenre = response.data.included;
+          var listAnimes = response.data.data;
 
-          for (var i = 0; i < listAnime.length; i++) {
+          // Récupération des données de type genres brut
+          var listGenresBrut = response.data.included.filter(
+            e => e.type === "genres"
+          );
+          // Envoi au parent pour la mise en cache
+          this.$emit("getGenres", listGenresBrut);
+
+          // Récupération des catégories
+          var listCategoriesBrut = response.data.included.filter(
+            e => e.type === "categories"
+          );
+          // Envoi au parent pour la mise en cache
+          this.$emit("getCategories", listCategoriesBrut);
+
+          for (var i = 0; i < listAnimes.length; i++) {
             let myAnime = {};
-            myAnime.id = listAnime[i].id;
-            myAnime.name = listAnime[i].attributes.titles.en_jp;
-            myAnime.synopsis = listAnime[i].attributes.synopsis;
-            myAnime.posterImage = listAnime[i].attributes.posterImage.small;
-            myAnime.genres = listAnime[i].attributes.genres;
-            myAnime.popularityRank = listAnime[i].attributes.popularityRank;
+            myAnime.id = listAnimes[i].id;
+            myAnime.name = listAnimes[i].attributes.titles.en_jp;
+            myAnime.synopsis = listAnimes[i].attributes.synopsis;
+            myAnime.posterImage = listAnimes[i].attributes.posterImage.small;
+            myAnime.genres = listAnimes[i].included;
+            myAnime.popularityRank = listAnimes[i].attributes.popularityRank;
 
             this.listAnimeTop10.push(myAnime);
           }
@@ -66,6 +79,7 @@ export default {
     },
     removeFavoris(anime) {
       const index = this.listAnimeFavoris.map(e => e.id).indexOf(anime.id);
+      // Test sur l'index car les objets en Favoris peuvent provenir du Local Storage et donc ne possède pas la même référence objet que ceux chargés à la vue
       if (index !== -1) {
         this.listAnimeFavoris.splice(index, 1);
         this.saveToLocalStorage();
@@ -77,7 +91,6 @@ export default {
         return true;
       }
       return false;
-      //return this.listAnimeFavoris.includes(anime);
     },
     saveToLocalStorage() {
       localStorage.setItem(FAVORIS, JSON.stringify(this.listAnimeFavoris));
