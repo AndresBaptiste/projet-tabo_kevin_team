@@ -3,14 +3,14 @@
     height: 200px;
 }
 [class="card mb-4"]{
-   height: 704px;
-   width: 288px;
+   height: 95%;
+   
 }
 
 .card-text{
 
-    height:156px;
-    width: 246.4px;
+    
+    width: 100%
    
 
 }
@@ -19,5 +19,13 @@
 
     height:48px;
     width: 246.4px;
+
+}
+
+.card-footer{
+
+background-color: white;
+
+
 
 }

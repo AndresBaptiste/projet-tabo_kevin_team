@@ -7,8 +7,10 @@
                 <ul>
                     <li>{{ anime.popularityRank }}</li>
                 </ul>
+                <div class="card-footer">
                 <button class="btn btn-primary" v-if="isFavoris" v-on:click="action()">Suppression</button>
                 <button class="btn btn-primary" v-if="!isFavoris" v-on:click="action()">Favoris</button>
+                </div>
             </div>
         </div>
 </template>
