@@ -157,9 +157,10 @@
 import axios from "axios";
 
 axios
-  .get("https://kitsu.io/api/edge/genres?page[limit]=10&page[offset]=0")
+  .get("https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0")
   .then(function(response) {
-    console.log(response);
+    var myObjectGenre = response.data.data[0];
+    console.log(myObjectGenre.attributes.titles.en);
   })
   .catch(function(error) {
     console.log(error);
