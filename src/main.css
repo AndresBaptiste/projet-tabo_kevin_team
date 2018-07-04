@@ -1,5 +1,5 @@
 #card{
-    width: 50rem;
+    width: 60rem;
     height: 200px;
 }
 [class="card mb-4"]{
@@ -9,7 +9,15 @@
 
 .card-text{
 
-    height:168px;
+    height:156px;
+    width: 246.4px;
+   
+
+}
+
+.card-title{
+
+    height:48px;
     width: 246.4px;
 
 }
