@@ -1,8 +1,23 @@
 #card{
-    width: 50rem;
+    width: 40rem;
     height: 200px;
 }
-[class="card mb-3"]{
-    max-height: 412.6px;
-    max-width: 350px;
+[class="card mb-4"]{
+   height: 704px;
+   width: 288px;
+}
+
+.card-text{
+
+    height:156px;
+    width: 246.4px;
+   
+
+}
+
+.card-title{
+
+    height:48px;
+    width: 246.4px;
+
 }
