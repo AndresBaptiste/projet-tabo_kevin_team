@@ -1,10 +1,9 @@
 <template>
-
-   <div class="favoris">
+     <div class="recherche">
 	<div class="jumbotron">
-		<h1 class="display-3">Favoris</h1>
+		<h1 class="display-3">Résultat de recherche</h1>
 		<div class="container">
-      <!-- à dupliquer!-->
+          <!-- a dupliquer par le nombre d'éléments !-->
 			<div class="row">
 				<div class="col-md-4">
 					<div class="card mb-3">
@@ -24,50 +23,12 @@
 	</div>
 </div>
 
+
     <!-- a dupliquer par le nombre d'éléments !-->
 </template>
 
 <script>
-//liste des fonctions utilisées pour favoris
-const FAVORIS_KEY = "favoris";
-export default {
-  name: "favoris",
-  data() {
-    return {
-      msg: "",
-      messages: "Hello",
-      search: "",
-      contacts: JSON.parse(localStorage.getItem(FAVORIS_KEY)) || [],
-      sortAZ: false
-    };
-  },
- 
-  methods: {
-   deleteList(index) {
-      this.favoris.splice(index, 1);
-      this.saveToJson();
-    },
-     reverseList() {
-      this.favoris.reverse();
-    },
-    saveToJson() {
-     
-      localStorage.setItem(FAVORIS_KEY, JSON.stringify(this.favoris));
-    }
-  },
-
-   computed: {
-    favorisFiltered() {
-      const listFiltered = [];
-      for (let favoris of this.favoris) {
-        if (favoris.name.includes(this.favoris)) {
-          listFiltered.push(favoris);
-        }
-      }
-      return listFiltered;
-    }
-  },
-};
+export default {};
 </script>
 
 <style>

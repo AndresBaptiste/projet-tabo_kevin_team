@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+ <div class="manga">
 	<div class="jumbotron">
-		<h1 class="display-3">Top 10</h1>
+		<h1 class="display-3">Top Mangas</h1>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
@@ -144,24 +144,10 @@
 		</div>
 	</div>
 </div>
-
-
 </template>
 
 <script>
-import axios from "axios";
-
-axios
-  .get("https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0")
-  .then(function(response) {
-    var myObjectGenre = response.data.data[0];
-    console.log(myObjectGenre.attributes.titles.en);
-  })
-  .catch(function(error) {
-    console.log(error);
-  });
-
 export default {
-  name: "home"
+  name: "manga"
 };
 </script>
