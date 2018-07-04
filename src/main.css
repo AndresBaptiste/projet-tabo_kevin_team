@@ -1,31 +1,12 @@
-#card{
-    width: 40rem;
-    height: 200px;
-}
-[class="card mb-4"]{
-   height: 95%;
-   
-}
-
-.card-text{
-
-    
-    width: 100%
-   
-
-}
-
-.card-title{
-
-    height:48px;
-    width: 246.4px;
-
-}
-
 .card-footer{
 
 background-color: white;
 
 
+}
 
+.card-body{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    height: 369px;
 }

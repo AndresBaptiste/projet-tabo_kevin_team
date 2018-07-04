@@ -1,4 +1,5 @@
 <template>
+<div>
         <div class="card mb-4">
             <img class="card-img-top" v-bind:src="`${anime.posterImage}`" alt="Card image cap">
             <div class="card-body">
@@ -7,11 +8,12 @@
                 <ul>
                     <li>{{ anime.popularityRank }}</li>
                 </ul>
-                <div class="card-footer">
+                </div>
+                <div class="card-footer  text-muted">
                 <button class="btn btn-primary" v-if="isFavoris" v-on:click="action()">Suppression</button>
                 <button class="btn btn-primary" v-if="!isFavoris" v-on:click="action()">Favoris</button>
                 </div>
-            </div>
+        </div>
         </div>
 </template>
 
