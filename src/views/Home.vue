@@ -5,17 +5,14 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
-					<div class="card mb-3">
-						<h3 class="card-header">{{ anime.name }}</h3>
-						<div class="card-body">
-							<img style="height: 200px; align: center;< display: block;" v-bind:src="getImage(anime.posterImage)"  alt="Card image">
-							<div class="card-body">
-								<p class="card-text">
-									{{ anime.synopsis.slice(0, 200) }}...
-								</p>
-							</div>
-						</div>
-					</div>
+           <div class="card mb-4" style="width: 18rem;">
+          <img class="card-img-top" v-bind:src="getImage(anime.posterImage)" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ anime.name }}</h5>
+            <p class="card-text">{{ anime.synopsis.slice(0, 200) }}...</p>
+            <a href="#" class="btn btn-primary">Favoris</a>
+          </div>
+        </div> 
 				</div>
 			</div>
 		</div>
@@ -52,8 +49,8 @@ export default {
             myAnime.id = listAnime[i].attributes.id;
             myAnime.name = listAnime[i].attributes.titles.en_jp;
             myAnime.synopsis = listAnime[i].attributes.synopsis;
-            myAnime.genres = listAnime[i].attributes.genres;
             myAnime.posterImage = listAnime[i].attributes.posterImage.small;
+            myAnime.genres = listAnime[i].attributes.genres;
 
             this.listAnimeTop10.push(myAnime);
           }
