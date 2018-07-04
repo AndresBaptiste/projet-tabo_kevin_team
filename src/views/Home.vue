@@ -16,7 +16,7 @@
 <script>
 import axios from "axios";
 import Card from "@/components/Card.vue";
-const FAVORIS = "favoris";
+const FAVORIS = "favorisAnime";
 
 export default {
   name: "home",
