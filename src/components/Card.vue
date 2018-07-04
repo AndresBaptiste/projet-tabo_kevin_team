@@ -9,7 +9,7 @@
 				{{ anime.name }}
 			</h5>
 			<p class="card-text">
-				{{ anime.synopsis.slice(0, 200) }}...
+				{{ anime.synopsis.slice(0, 220) }}...
 			</p>
 			<ul>
 				<li>{{ anime.popularityRank }}</li>
