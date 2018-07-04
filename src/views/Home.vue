@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
-           <anime-card v-bind:anime="anime" v-bind:isFavoris="false" v-on:actionToBind="ajoutFavoris(anime)">
+           <anime-card v-bind:anime="anime" v-bind:isFavoris="isFavoris(anime)" v-on:add="ajoutFavoris(anime)" v-on:remove="removeFavoris(anime)">
            </anime-card> 
 				</div>
 			</div>
@@ -15,7 +15,7 @@
 <script>
 import axios from "axios";
 import Card from "@/components/Card.vue";
-//import anime from "../anime.js";
+const FAVORIS = "favoris";
 
 export default {
   name: "home",
@@ -23,7 +23,7 @@ export default {
     return {
       name: "",
       listAnimeTop10: [],
-      listAnimeFavoris: []
+      listAnimeFavoris: JSON.parse(localStorage.getItem(FAVORIS)) || []
     };
   },
   mounted() {
@@ -41,7 +41,7 @@ export default {
 
           for (var i = 0; i < listAnime.length; i++) {
             let myAnime = {};
-            myAnime.id = listAnime[i].attributes.id;
+            myAnime.id = listAnime[i].id;
             myAnime.name = listAnime[i].attributes.titles.en_jp;
             myAnime.synopsis = listAnime[i].attributes.synopsis;
             myAnime.posterImage = listAnime[i].attributes.posterImage.small;
@@ -57,8 +57,30 @@ export default {
         });
     },
     ajoutFavoris(anime) {
-      this.listAnimeFavoris.push(anime);
+      const index = this.listAnimeFavoris.indexOf(anime);
+      if (index === -1) {
+        this.listAnimeFavoris.push(anime);
+        this.saveToLocalStorage();
+      }
       console.log(this.listAnimeFavoris);
+    },
+    removeFavoris(anime) {
+      const index = this.listAnimeFavoris.map(e => e.id).indexOf(anime.id);
+      if (index !== -1) {
+        this.listAnimeFavoris.splice(index, 1);
+        this.saveToLocalStorage();
+      }
+      console.log(this.listAnimeFavoris);
+    },
+    isFavoris(anime) {
+      if (this.listAnimeFavoris.some(e => e.id === anime.id)) {
+        return true;
+      }
+      return false;
+      //return this.listAnimeFavoris.includes(anime);
+    },
+    saveToLocalStorage() {
+      localStorage.setItem(FAVORIS, JSON.stringify(this.listAnimeFavoris));
     }
   },
   components: {
