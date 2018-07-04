@@ -28,7 +28,46 @@
 </template>
 
 <script>
-export default {};
+//liste des fonctions utilisées pour favoris
+const FAVORIS_KEY = "favoris";
+export default {
+  name: "favoris",
+  data() {
+    return {
+      msg: "",
+      messages: "Hello",
+      search: "",
+      contacts: JSON.parse(localStorage.getItem(FAVORIS_KEY)) || [],
+      sortAZ: false
+    };
+  },
+ 
+  methods: {
+   deleteList(index) {
+      this.favoris.splice(index, 1);
+      this.saveToJson();
+    },
+     reverseList() {
+      this.favoris.reverse();
+    },
+    saveToJson() {
+     
+      localStorage.setItem(FAVORIS_KEY, JSON.stringify(this.favoris));
+    }
+  },
+
+   computed: {
+    favorisFiltered() {
+      const listFiltered = [];
+      for (let favoris of this.favoris) {
+        if (favoris.name.includes(this.favoris)) {
+          listFiltered.push(favoris);
+        }
+      }
+      return listFiltered;
+    }
+  },
+};
 </script>
 
 <style>
