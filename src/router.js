@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Favoris from "./views/Favoris.vue";
 import Manga from "./views/Manga.vue";
+import Recherche from "./views/Recherche.vue";
 
 Vue.use(Router);
 
@@ -28,6 +29,11 @@ export default new Router({
       path: "/manga",
       name: "manga",
       component: Manga
+    },
+    {
+      path: "/recherche",
+      name: "recherche",
+      component: Recherche
     }
   ]
 });

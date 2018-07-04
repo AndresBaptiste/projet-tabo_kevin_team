@@ -12,7 +12,7 @@
       <a>  <router-link to="/" class="nav-link" >Anime <span class="sr-only">(current)</span></router-link> </a>
       </li>
       <li class="nav-item">
-        <router-link to="/manga" class="nav-link" >Manga</router-link>
+        <router-link to="/manga" class="nav-link">Manga</router-link>
       </li>
       <li class="nav-item">
          <router-link to="/favoris" class="nav-link" >Favoris</router-link>

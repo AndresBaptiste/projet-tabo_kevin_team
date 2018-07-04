@@ -3,7 +3,7 @@
 
 
     <div class="jumbotron">
-    <h1 class="display-3">Top 10</h1>
+    <h1 class="display-3">Top Mangas</h1>
 
 
      <div class="container">
