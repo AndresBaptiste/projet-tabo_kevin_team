@@ -1,7 +1,7 @@
 <template>
   <div class="home">
 	<div class="jumbotron">
-		<h1 class="display-3">Top 10</h1>
+		<h1 class="display-3">Top 10 anime</h1>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
