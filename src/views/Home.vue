@@ -24,6 +24,7 @@ export default {
     return {
       name: "",
       listAnimeTop10: [],
+      listeGenres: [],
       listAnimeFavoris: JSON.parse(localStorage.getItem(FAVORIS)) || []
     };
   },
@@ -45,6 +46,7 @@ export default {
           );
           // Envoi au parent pour la mise en cache
           this.$emit("getGenres", listGenresBrut);
+          console.log(this.$parent.listGenres);
 
           // Récupération des catégories
           var listCategoriesBrut = response.data.included.filter(
@@ -64,7 +66,7 @@ export default {
 
             this.listAnimeTop10.push(myAnime);
           }
-          console.log(response.data);
+          //console.log(response.data);
         })
         .catch(function(error) {
           console.log(error);
