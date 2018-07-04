@@ -3,15 +3,13 @@
     height: 200px;
 }
 [class="card mb-4"]{
-    max-height: 704px;
-    max-width: 288px;
+   height: 704px;
+   width: 288px;
 }
 
-.img:focus, .img:hover {
-    color: #014c8c;
-    text-decoration: underline;
-}
-:focus {
-    outline-color: transparent;
-    outline-style: none;
+.card-text{
+
+    height:168px;
+    width: 246.4px;
+
 }
