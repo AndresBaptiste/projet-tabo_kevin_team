@@ -4,9 +4,10 @@
 		<h1 class="display-3">Top 10</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
-           <anime-card v-bind:anime="anime" v-bind:isFavoris="isFavoris(anime)" v-on:add="ajoutFavoris(anime)" v-on:remove="removeFavoris(anime)">
-           </anime-card> 
+        <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
+				<div v-else class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
+            <anime-card v-bind:anime="anime" v-bind:isFavoris="isFavoris(anime)" v-on:add="ajoutFavoris(anime)" v-on:remove="removeFavoris(anime)">
+            </anime-card> 
 				</div>
 			</div>
 	  </div>
@@ -23,6 +24,7 @@ export default {
   data() {
     return {
       name: "",
+      loading: true,
       listAnimeTop10: [],
       listeGenres: [],
       listAnimeFavoris: JSON.parse(localStorage.getItem(FAVORIS)) || []
@@ -46,7 +48,7 @@ export default {
           );
           // Envoi au parent pour la mise en cache
           this.$emit("getGenres", listGenresBrut);
-          console.log(this.$parent.listGenres);
+          //console.log(this.$parent.listGenres);
 
           // Récupération des catégories
           var listCategoriesBrut = response.data.included.filter(
@@ -66,11 +68,12 @@ export default {
 
             this.listAnimeTop10.push(myAnime);
           }
-          //console.log(response.data);
+          console.log(response.data);
         })
         .catch(function(error) {
           console.log(error);
-        });
+        })
+        .finally(() => (this.loading = false));
     },
     ajoutFavoris(anime) {
       const index = this.listAnimeFavoris.indexOf(anime);
