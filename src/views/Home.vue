@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <div></div>
 		<h1 class="display-3">Top 10</h1>
 		<div class="container">
 			<div class="row">
