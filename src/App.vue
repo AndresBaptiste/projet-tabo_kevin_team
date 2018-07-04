@@ -24,7 +24,7 @@
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
 					<input class="form-control mr-sm-2" placeholder="Search" type="text">
-				<router-link to="/recherche">	<button class="btn btn-secondary my-2 my-sm-0" type="submit" >Rechercher</button></router-link>
+				<router-link to="/recherche">	<button class="btn btn-secondary my-2 my-sm-0">Rechercher</button></router-link>
 				</form>
 			</div>
 
@@ -56,11 +56,5 @@
 }
 </style>
 <script>
-export default {
-  methods: {
-    swapComponent: function() {
-      this.component = "recherche";
-    }
-  }
-};
+export default {};
 </script>
