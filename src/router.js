@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Favoris from "./views/Favoris.vue";
+import Manga from "./views/Manga.vue";
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: "/favoris",
       name: "favoris",
       component: Favoris
+    },
+    {
+      path: "/manga",
+      name: "manga",
+      component: Manga
     }
   ]
 });

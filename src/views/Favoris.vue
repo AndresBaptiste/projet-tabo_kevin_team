@@ -4,6 +4,7 @@
  <div class="jumbotron">
     <h1 class="display-3">Favoris</h1>
 
+    <!-- a dupliquer par le nombre d'éléments !-->
 
      <div class="container">
        <div class="row">
@@ -23,15 +24,12 @@
 </div>
   </div>
 </div>
-
+    <!-- a dupliquer par le nombre d'éléments !-->
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>
