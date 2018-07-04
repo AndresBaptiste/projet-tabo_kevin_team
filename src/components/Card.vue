@@ -7,8 +7,8 @@
                 <ul>
                     <li>{{ anime.popularityRank }}</li>
                 </ul>
-                <button class="btn btn-primary" v-if="isFavoris" v-on:click="action()">Suppression</button>
-                <button class="btn btn-primary" v-if="!isFavoris" v-on:click="action()">Favoris</button>
+                <button class="btn btn-primary" v-if="isFavoris" v-on:click="removeFavoris()">Suppression</button>
+                <button class="btn btn-primary" v-if="!isFavoris" v-on:click="addFavoris()">Favoris</button>
             </div>
         </div>
 </template>
@@ -18,8 +18,11 @@ export default {
   name: "Card",
   props: ["anime", "isFavoris"],
   methods: {
-    action() {
-      this.$emit("actionToBind");
+    addFavoris() {
+      this.$emit("add");
+    },
+    removeFavoris() {
+      this.$emit("remove");
     }
   }
 };
