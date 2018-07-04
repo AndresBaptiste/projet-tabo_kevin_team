@@ -41,22 +41,21 @@ export default {
       sortAZ: false
     };
   },
- 
+
   methods: {
-   deleteList(index) {
+    deleteList(index) {
       this.favoris.splice(index, 1);
       this.saveToJson();
     },
-     reverseList() {
+    reverseList() {
       this.favoris.reverse();
     },
     saveToJson() {
-     
       localStorage.setItem(FAVORIS_KEY, JSON.stringify(this.favoris));
     }
   },
 
-   computed: {
+  computed: {
     favorisFiltered() {
       const listFiltered = [];
       for (let favoris of this.favoris) {
@@ -66,7 +65,7 @@ export default {
       }
       return listFiltered;
     }
-  },
+  }
 };
 </script>
 
