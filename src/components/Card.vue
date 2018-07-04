@@ -1,7 +1,9 @@
 <template>
 <div>
 	<div class="card mb-4">
-		<img class="card-img-top" v-bind:src="`${anime.posterImage}`" alt="Card image cap">
+		<router-link to="/Presentation">
+		<div><img class="card-img-top" v-bind:src="`${anime.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap"></div>
+		</router-link>
 		<div class="card-body">
 			<h5 class="card-title">
 				{{ anime.name }}
