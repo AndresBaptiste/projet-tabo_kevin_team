@@ -1,73 +1,38 @@
 <template>
-   <div class="favoris">
-	<div class="jumbotron">
-		<div></div>
+  <div class="favoris">
 		<h1 class="display-3">Favoris</h1>
 		<div class="container">
-			<div class="row">
-        <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
-				<div v-else class="col-md-4" v-for=" myAnime in tabFavoris" v-bind:key="myAnime.id">
-            <anime-card v-bind:anime="myAnime" v-bind:isFavoris="isFavoris(anime)" v-on:add="ajoutFavoris(anime)" v-on:remove="removeFavoris(anime)">
-            </anime-card> 
-				</div>
-			</div>
+      <h2>Anime</h2>
+			<grid-card v-bind:listMedia="listAnimeFavoris" v-bind:loading="loading">
+			</grid-card>
+      
+      <h2>Manga</h2>
+      <grid-card v-bind:listMedia="listMangaFavoris" v-bind:loading="loading">
+			</grid-card>
 	  </div>
-	</div>
-</div>
-
-    <!-- a dupliquer par le nombre d'éléments !-->
+  </div>
 </template>
 
 <script>
-//liste des fonctions utilisées pour favoris
-const FAVORIS_KEY = "favorisAnime";
-import Card from "@/components/Card.vue";
+import GridCard from "@/components/GridCard.vue";
+
 export default {
   name: "favoris",
   data() {
     return {
-      msg: "",
-      messages: "Hello",
-      search: "",
-      tabFavoris: [],
-      favorisAnime: JSON.parse(localStorage.getItem(FAVORIS_KEY)) || [],
-      sortAZ: false
+      loading: true,
+      listAnimeFavoris: [],
+      listMangaFavoris: []
     };
   },
-
-  mounted: {
-    GetFavoris() {
-      for (var i = 0; i < this.favorisAnime.length; i++) {
-        let myAnime = {};
-        myAnime.id = this.favorisAnime[i].id;
-        myAnime.name = this.favorisAnime[i].attributes.titles.en_jp;
-        myAnime.synopsis = this.favorisAnime[i].attributes.synopsis;
-        myAnime.posterImage = this.favorisAnime[i].attributes.posterImage.small;
-        myAnime.genres = this.favorisAnime[i].included;
-        myAnime.popularityRank = this.favorisAnime[i].attributes.popularityRank;
-        this.tabFavoris.push(myAnime);
-        console.log(myAnime);
-      }
-    }
+  mounted() {
+    this.listAnimeFavoris = this.$root.listAnimeFavoris;
+    this.listMangaFavoris = this.$root.listMangaFavoris;
+    this.loading = false;
   },
-
-  computed: {
-    favorisFiltered() {
-      const listFiltered = [];
-      for (let favoris of this.favoris) {
-        if (favoris.name.includes(this.favoris)) {
-          listFiltered.push(favoris);
-        }
-      }
-      return listFiltered;
-    }
-  },
-
+  methods: {},
   components: {
-    "anime-card": Card
+    "grid-card": GridCard
   }
 };
 </script>
-
-<style>
-</style>
