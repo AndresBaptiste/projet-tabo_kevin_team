@@ -1,7 +1,7 @@
 <template>
 <div>
 	<div class="card mb-4">
-		<router-link :to="{name:'presentation', params: {data: media, type: typeMedia}}">
+		<router-link :to="{name:'presentation', params: {data: media}}">
 		<div><img class="card-img-top" v-bind:src="`${media.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap"></div>
 		</router-link>
 		<div class="card-body">
@@ -16,8 +16,7 @@
 			</ul>
 		</div>
 		<div class="card-footer  text-muted">
-			<button class="btn btn-primary" v-if="isFavoris" v-on:click="removeFavoris()">Suppression</button>
-			<button class="btn btn-primary" v-if="!isFavoris" v-on:click="addFavoris()">Favoris</button>
+			<button-favorite v-bind:media="media"></button-favorite>
 		</div>
 	</div>
 </div>
@@ -25,16 +24,13 @@
 </template>
 
 <script>
+import ButtonFavorite from "@/components/ButtonFavorite.vue";
+
 export default {
   name: "Card",
-  props: ["media", "isFavoris", "typeMedia"],
-  methods: {
-    addFavoris() {
-      this.$emit("add");
-    },
-    removeFavoris() {
-      this.$emit("remove");
-    }
+  props: ["media"],
+  components: {
+    "button-favorite": ButtonFavorite
   }
 };
 </script>
