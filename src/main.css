@@ -75,3 +75,12 @@ h1
     from, to { border-color: transparent }
     50% { border-color: orange; }
   }
+  
+
+  h6
+{
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color:#ccc;
+  padding:30px;
+  font-weight:lighter;
+}
