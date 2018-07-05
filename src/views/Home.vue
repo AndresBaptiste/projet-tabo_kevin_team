@@ -69,6 +69,7 @@ export default {
             this.listAnimeTop10.push(myAnime);
           }
           console.log(response.data);
+          this.loading = false;
         })
         .catch(function(error) {
           console.log(error);
