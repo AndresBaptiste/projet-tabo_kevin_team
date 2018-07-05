@@ -2,31 +2,22 @@
   <div class="home">
 		<h1 class="display-3">Top Manga</h1>
 		<div class="container">
-			<div class="row">
-        <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
-				<div v-else class="col-md-4" v-for="manga in listMangaTop10" v-bind:key="manga.id">
-           <anime-card v-bind:media="manga" v-bind:typeMedia="typeMedia" v-bind:isFavoris="isFavoris(manga)" v-on:add="ajoutFavoris(manga)" v-on:remove="removeFavoris(manga)">
-           </anime-card> 
-				</div>
-			</div>
-	</div>
-</div>
+			<grid-card v-bind:listMedia="listMangas" v-bind:loading="loading">
+			</grid-card>
+	  </div>
+  </div>
 </template>
 
 <script>
 import axios from "axios";
-import Card from "@/components/Card.vue";
-const FAVORIS = "favorisManga";
+import GridCard from "@/components/GridCard.vue";
 
 export default {
   name: "home",
   data() {
     return {
-      name: "",
-      typeMedia: "manga",
       loading: true,
-      listMangaTop10: [],
-      listMangaFavoris: JSON.parse(localStorage.getItem(FAVORIS)) || []
+      listMangas: []
     };
   },
   mounted() {
@@ -39,19 +30,18 @@ export default {
           "https://kitsu.io/api/edge/manga?page[limit]=9&page[offset]=0&sort=popularityRank&include=genres"
         )
         .then(response => {
-          var listManga = response.data.data;
-          //var listGenre = response.data.included;
+          var listData = response.data.data;
 
-          for (var i = 0; i < listManga.length; i++) {
-            let myManga = {};
-            myManga.id = listManga[i].id;
-            myManga.name = listManga[i].attributes.titles.en_jp;
-            myManga.synopsis = listManga[i].attributes.synopsis;
-            myManga.posterImage = listManga[i].attributes.posterImage.small;
-            myManga.genres = listManga[i].attributes.genres;
-            myManga.popularityRank = listManga[i].attributes.popularityRank;
-
-            this.listMangaTop10.push(myManga);
+          for (var i = 0; i < listData.length; i++) {
+            let myMedia = {};
+            myMedia.id = listData[i].id;
+            myMedia.name = listData[i].attributes.titles.en_jp;
+            myMedia.synopsis = listData[i].attributes.synopsis;
+            myMedia.posterImage = listData[i].attributes.posterImage.small;
+            myMedia.popularityRank = listData[i].attributes.popularityRank;
+            myMedia.typeMedia = this.$root.TYPE_MEDIA.MANGA;
+            myMedia.isFavoris = this.$root.isFavoris(myMedia);
+            this.listMangas.push(myMedia);
           }
           console.log(response.data);
           this.loading = false;
@@ -60,36 +50,10 @@ export default {
           console.log(error);
         })
         .finally(() => (this.loading = false));
-    },
-    ajoutFavoris(manga) {
-      const index = this.listMangaFavoris.indexOf(manga);
-      if (index === -1) {
-        this.listMangaFavoris.push(manga);
-        this.saveToLocalStorage();
-      }
-      console.log(this.listMangaFavoris);
-    },
-    removeFavoris(manga) {
-      const index = this.listMangaFavoris.map(e => e.id).indexOf(manga.id);
-      if (index !== -1) {
-        this.listMangaFavoris.splice(index, 1);
-        this.saveToLocalStorage();
-      }
-      console.log(this.listMangaFavoris);
-    },
-    isFavoris(manga) {
-      if (this.listMangaFavoris.some(e => e.id === manga.id)) {
-        return true;
-      }
-      return false;
-      //return this.listMangaFavoris.includes(manga);
-    },
-    saveToLocalStorage() {
-      localStorage.setItem(FAVORIS, JSON.stringify(this.listMangaFavoris));
     }
   },
   components: {
-    "anime-card": Card
+    "grid-card": GridCard
   }
 };
 </script>
