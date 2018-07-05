@@ -3,8 +3,9 @@
 		<h1 class="display-3">Top Manga</h1>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4" v-for="manga in listMangaTop10" v-bind:key="manga.id">
-           <anime-card v-bind:anime="manga" v-bind:isFavoris="isFavoris(manga)" v-on:add="ajoutFavoris(manga)" v-on:remove="removeFavoris(manga)">
+        <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
+				<div v-else class="col-md-4" v-for="manga in listMangaTop10" v-bind:key="manga.id">
+           <anime-card v-bind:media="manga" v-bind:typeMedia="typeMedia" v-bind:isFavoris="isFavoris(manga)" v-on:add="ajoutFavoris(manga)" v-on:remove="removeFavoris(manga)">
            </anime-card> 
 				</div>
 			</div>
@@ -22,6 +23,8 @@ export default {
   data() {
     return {
       name: "",
+      typeMedia: "manga",
+      loading: true,
       listMangaTop10: [],
       listMangaFavoris: JSON.parse(localStorage.getItem(FAVORIS)) || []
     };
@@ -51,10 +54,12 @@ export default {
             this.listMangaTop10.push(myManga);
           }
           console.log(response.data);
+          this.loading = false;
         })
         .catch(function(error) {
           console.log(error);
-        });
+        })
+        .finally(() => (this.loading = false));
     },
     ajoutFavoris(manga) {
       const index = this.listMangaFavoris.indexOf(manga);

@@ -1,18 +1,18 @@
 <template>
 <div>
 	<div class="card mb-4">
-		<router-link to="/Presentation">
-		<div><img class="card-img-top" v-bind:src="`${anime.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap"></div>
+		<router-link :to="{name:'presentation', params: {data: media, type: typeMedia}}">
+		<div><img class="card-img-top" v-bind:src="`${media.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap"></div>
 		</router-link>
 		<div class="card-body">
 			<h5 class="card-title">
-				{{ anime.name }}
+				{{ media.name }}
 			</h5>
 			<p class="card-text">
-				{{ anime.synopsis.slice(0, 220) }}...
+				{{ media.synopsis.slice(0, 220) }}...
 			</p>
 			<ul>
-				<li>{{ anime.popularityRank }}</li>
+				<li>{{ media.popularityRank }}</li>
 			</ul>
 		</div>
 		<div class="card-footer  text-muted">
@@ -27,7 +27,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["anime", "isFavoris"],
+  props: ["media", "isFavoris", "typeMedia"],
   methods: {
     addFavoris() {
       this.$emit("add");
