@@ -30,7 +30,7 @@
 
 
 </nav>
-    <router-view v-on:getGenres="cacheGenre" v-on:getCategories="cacheCategorie"/>
+    <router-view/>
   </div>
 </template>
 
@@ -56,32 +56,5 @@
 }
 </style>
 <script>
-export default {
-  data() {
-    return {
-      listGenres: [],
-      listCategories: []
-    };
-  },
-  methods: {
-    cacheGenre: function(dataBrut) {
-      // Mapping sous un objet genre plus light pour la mise en cache
-      this.listGenres = dataBrut.map(e => {
-        var genre = {};
-        genre.id = e.id;
-        genre.name = e.attributes.name;
-        return genre;
-      });
-    },
-    cacheCategorie: function(dataBrut) {
-      // Mapping sous un objet categorie plus light pour la mise en cache
-      this.listCategories = dataBrut.map(e => {
-        var categorie = {};
-        categorie.id = e.id;
-        categorie.name = e.attributes.title;
-        return categorie;
-      });
-    }
-  }
-};
+export default {};
 </script>
