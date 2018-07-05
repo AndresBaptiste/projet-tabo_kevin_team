@@ -32,7 +32,7 @@ export default new Router({
       component: Manga
     },
     {
-      path: "/recherche",
+      path: "/recherche/:data",
       name: "recherche",
       component: Recherche
     },

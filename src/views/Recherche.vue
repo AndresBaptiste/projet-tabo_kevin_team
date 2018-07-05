@@ -1,39 +1,70 @@
 <template>
-     <div class="recherche">
+	<div class="recherche">
 		<h1 class="display-3">Résultat de recherche</h1>
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-				<p><label>Rechercher <input type="text" v-model="texteRecherche" @keyup.enter="getRecherche()"></label></p>
-				<p>Valeur de la recherche {{texteRecherche}}	</p>
-				</div>
-			</div>
+				<grid-card v-bind:listMedia="listMedias" v-bind:loading="loading">
+			</grid-card>
+		</div>
 	</div>
-
-	<div class="container">
-			<div class="row">
-        <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
-				<div v-else class="col-md-4" v-for="anime in listAnimeTop10" v-bind:key="anime.id">
-            <anime-card v-bind:media="anime" v-bind:typeMedia="typeMedia" v-bind:isFavoris="isFavoris(anime)" v-on:add="ajoutFavoris(anime)" v-on:remove="removeFavoris(anime)">
-            </anime-card> 
-				</div>
-			</div>
-	  </div>
-</div>
 </template>
 
 <script>
+import axios from "axios";
+import GridCard from "@/components/GridCard.vue";
+
 export default {
-  name: "home",
   data() {
     return {
-      texteRecherche: ""
+      loading: "",
+      listMedias: []
     };
   },
   mounted() {
-    this.getRecherche();
+    this.getMedias(this.$route.params.data);
   },
-  methods: {}
+  watch: {
+    $route: {
+      handler() {
+        this.listMedias = [];
+        this.getMedias(this.$route.params.data);
+      },
+      deep: true
+    }
+  },
+  methods: {
+    getMedias(texte) {
+      axios
+        .get(
+          "https://kitsu.io/api/edge/anime?page[limit]=09&page[offset]=0&filter[text]=" +
+            texte
+        )
+        .then(response => {
+          var listData = response.data.data;
+
+          for (var i = 0; i < listData.length; i++) {
+            let myMedia = {};
+            myMedia.id = listData[i].id;
+            myMedia.name = listData[i].attributes.titles.en_jp;
+            myMedia.synopsis = listData[i].attributes.synopsis;
+            myMedia.posterImage = listData[i].attributes.posterImage.small;
+            myMedia.genres = listData[i].included;
+            myMedia.popularityRank = listData[i].attributes.popularityRank;
+            myMedia.typeMedia = this.$root.TYPE_MEDIA.ANIME;
+            myMedia.isFavoris = this.$root.isFavoris(myMedia);
+            this.listMedias.push(myMedia);
+          }
+          //console.log(response.data);
+          this.loading = false;
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+        .finally(() => (this.loading = false));
+    }
+  },
+  components: {
+    "grid-card": GridCard
+  }
 };
 </script>
 

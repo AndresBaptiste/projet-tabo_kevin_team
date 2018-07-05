@@ -22,8 +22,8 @@
 					<li class="nav-item"><router-link to="/about" class="nav-link" >About</router-link></li>
 				</ul>
 				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" placeholder="Search" type="text">
-				<router-link to="/recherche">	<button class="btn btn-secondary my-2 my-sm-0">Rechercher</button></router-link>
+					<input class="form-control mr-sm-2" placeholder="Search" type="text" v-model="search">
+				<router-link :to="{name:'recherche', params: {data: search}}"><button class="btn btn-secondary my-2 my-sm-0">Rechercher</button></router-link>
 				</form>
 			</div>
 
@@ -55,5 +55,11 @@
 }
 </style>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      search: ""
+    };
+  }
+};
 </script>
