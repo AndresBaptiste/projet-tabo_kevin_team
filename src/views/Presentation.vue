@@ -14,11 +14,15 @@
 		  </div>
         </div>
         <div class="col-md-6">
+           
           <div class="card-block">
+              <div id="module" class="container">
             <h4 class="card-title">{{media.type | capitalize}} - {{ media.data.name }}</h4>
-			<p class="card-text">{{ media.data.synopsis }}</p>
+             <div class="collapse" id="collapseExample" aria-expanded="false">	<p class="card-text">{{ media.data.synopsis }}</p>  </div>
+		
+      <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
                <div class="card-footer">
-				   
+				 </div>  
 			<p span class="badge badge-secondary">Categorie</p>
 			 
 			</div>
