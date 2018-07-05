@@ -33,7 +33,7 @@ export default {
     getTop10() {
       axios
         .get(
-          "https://kitsu.io/api/edge/manga?page[limit]=10&page[offset]=0&sort=popularityRank&include=genres"
+          "https://kitsu.io/api/edge/manga?page[limit]=9&page[offset]=0&sort=popularityRank&include=genres"
         )
         .then(response => {
           var listManga = response.data.data;
