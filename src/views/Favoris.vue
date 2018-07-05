@@ -2,11 +2,11 @@
   <div class="favoris">
 		<h1 class="display-3">Favoris</h1>
 		<div class="container">
-      <h2>Anime</h2>
+      <h6>Anime</h6>
 			<grid-card v-bind:listMedia="listAnimeFavoris" v-bind:loading="loading">
 			</grid-card>
       
-      <h2>Manga</h2>
+      <h6>Manga</h6>
       <grid-card v-bind:listMedia="listMangaFavoris" v-bind:loading="loading">
 			</grid-card>
 	  </div>
