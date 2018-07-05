@@ -41,7 +41,7 @@ export default {
         )
         .then(response => {
           var listAnimes = response.data.data;
-
+          console.log(this.$parent.FAVORIS_ANIME);
           // Récupération des données de type genres brut
           var listGenresBrut = response.data.included.filter(
             e => e.type === "genres"
