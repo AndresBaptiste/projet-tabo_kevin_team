@@ -12,7 +12,7 @@
 				{{ media.synopsis.slice(0, 220) }}...
 			</p>
 			<ul>
-				<li>{{ media.popularityRank }}</li>
+				<h6>rank: {{ media.popularityRank }}</h6>
 			</ul>
 		</div>
 		<div class="card-footer  text-muted">
