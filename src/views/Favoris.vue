@@ -29,51 +29,44 @@ export default {
       msg: "",
       messages: "Hello",
       search: "",
-      tabFavoris:[],
+      tabFavoris: [],
       favorisAnime: JSON.parse(localStorage.getItem(FAVORIS_KEY)) || [],
       sortAZ: false
     };
   },
 
- 
-
-    mounted: {
-      GetFavoris() {
-        for (var i = 0; i < this.favorisAnime.length; i++) {
-          let myAnime = {};
-          myAnime.id = this.favorisAnime[i].id;
-          myAnime.name = this.favorisAnime[i].attributes.titles.en_jp;
-          myAnime.synopsis = this.favorisAnime[i].attributes.synopsis;
-          myAnime.posterImage = this.favorisAnime[
-            i
-          ].attributes.posterImage.small;
-          myAnime.genres = this.favorisAnime[i].included;
-          myAnime.popularityRank = this.favorisAnime[
-            i
-          ].attributes.popularityRank;
-          this.tabFavoris.push(myAnime);
-          console.log(myAnime);
-        }
+  mounted: {
+    GetFavoris() {
+      for (var i = 0; i < this.favorisAnime.length; i++) {
+        let myAnime = {};
+        myAnime.id = this.favorisAnime[i].id;
+        myAnime.name = this.favorisAnime[i].attributes.titles.en_jp;
+        myAnime.synopsis = this.favorisAnime[i].attributes.synopsis;
+        myAnime.posterImage = this.favorisAnime[i].attributes.posterImage.small;
+        myAnime.genres = this.favorisAnime[i].included;
+        myAnime.popularityRank = this.favorisAnime[i].attributes.popularityRank;
+        this.tabFavoris.push(myAnime);
+        console.log(myAnime);
       }
-    },
-
-    computed: {
-      favorisFiltered() {
-        const listFiltered = [];
-        for (let favoris of this.favoris) {
-          if (favoris.name.includes(this.favoris)) {
-            listFiltered.push(favoris);
-          }
-        }
-        return listFiltered;
-      }
-    },
-
-    components: {
-      "anime-card": Card
     }
+  },
+
+  computed: {
+    favorisFiltered() {
+      const listFiltered = [];
+      for (let favoris of this.favoris) {
+        if (favoris.name.includes(this.favoris)) {
+          listFiltered.push(favoris);
+        }
+      }
+      return listFiltered;
+    }
+  },
+
+  components: {
+    "anime-card": Card
   }
-;
+};
 </script>
 
 <style>
