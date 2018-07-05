@@ -27,7 +27,7 @@ export default {
     getTop10() {
       axios
         .get(
-          "https://kitsu.io/api/edge/anime?page[limit]=09&page[offset]=0&sort=popularityRank&include=genres,categories&filter[text]=cowboy"
+          "https://kitsu.io/api/edge/anime?page[limit]=09&page[offset]=0&sort=popularityRank&include=genres,categories"
         )
         .then(response => {
           var listData = response.data.data;

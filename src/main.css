@@ -18,3 +18,60 @@ background-color: white;
 
 
 }
+
+h1
+{
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color:#ccc;
+  padding:30px;
+  font-weight:lighter;
+
+
+  
+}
+#module {
+    width: 500px;
+    line-height: 1.5;
+  }
+  
+  #module p.collapse[aria-expanded="false"] {
+      display: block;
+      height: 200px !important;
+      overflow: hidden;
+  }
+  
+  #module p.collapsing[aria-expanded="false"] {
+      height: 200px !important;
+  }
+  
+  #module a.collapsed:after  {
+      content: '+ Show More';
+  }
+  
+  #module a:not(.collapsed):after {
+      content: '- Show Less';
+  }
+
+
+  .typewriter h5 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
