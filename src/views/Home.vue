@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div></div>
-		<h1 class="display-3">Top 10</h1>
+		<h1 class="display-3">Top Anime</h1>
 		<div class="container">
 			<div class="row">
         <div v-if="loading" class="col-lg-12" style="font-size:24px;"><strong>Loading...</strong></div>
@@ -38,7 +38,7 @@ export default {
     getTop10() {
       axios
         .get(
-          "https://kitsu.io/api/edge/anime?page[limit]=10&page[offset]=0&sort=popularityRank&include=genres,categories&filter[text]=cowboy"
+          "https://kitsu.io/api/edge/anime?page[limit]=09&page[offset]=0&sort=popularityRank&include=genres,categories&filter[text]=cowboy"
         )
         .then(response => {
           var listAnimes = response.data.data;
