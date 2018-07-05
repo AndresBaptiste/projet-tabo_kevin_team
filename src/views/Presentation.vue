@@ -18,7 +18,7 @@
           <div class="card-block">
               <div id="module" class="container">
             <h4 class="card-title">{{media.type | capitalize}} - {{ media.data.name }}</h4>
-             <div class="collapse" id="collapseExample" aria-expanded="false">	<p class="card-text">{{ media.data.synopsis }}</p>  </div>
+             <div class="collapse" id="collapseExample" aria-expanded="false">	<p class="card-text" id="collapsedtext">{{ media.data.synopsis }}</p>  </div>
 		
       <a role="button" class="collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></a>
                <div class="card-footer">
