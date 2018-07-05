@@ -19,6 +19,16 @@ background-color: white;
 
 }
 
+h1
+{
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color:#ccc;
+  padding:30px;
+  font-weight:lighter;
+
+
+  
+}
 #module {
     width: 500px;
     line-height: 1.5;
@@ -41,3 +51,5 @@ background-color: white;
   #module a:not(.collapsed):after {
       content: '- Show Less';
   }
+
+
