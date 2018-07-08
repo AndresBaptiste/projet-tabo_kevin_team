@@ -2,17 +2,21 @@
 <div>
 	<div class="card mb-4">
 		<router-link :to="{name:'presentation', params: {data: media}}">
-		<div><img class="card-img-top" v-bind:src="`${media.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap"></div>
+			<div>
+				<img class="card-img-top" v-bind:src="`${media.posterImage}`" style="heigth= 100%; width= 100%;" alt="Card image cap">
+			</div>
 		</router-link>
 		<div class="card-body">
 			<h5 class="card-title">
-				{{ media.name }}
+				                {{ media.name }}            
 			</h5>
 			<p class="card-text">
-				{{ media.synopsis.slice(0, 220) }}...
+				                {{ media.synopsis.slice(0, 220) }}...            
 			</p>
 			<ul>
-				<h6>rank: {{ media.popularityRank }}</h6>
+				<h6>
+					rank: {{ media.popularityRank }}
+				</h6>
 			</ul>
 		</div>
 		<div class="card-footer  text-muted">
