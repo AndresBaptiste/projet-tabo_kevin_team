@@ -43,7 +43,6 @@ export default {
             myMedia.isFavoris = this.$root.isFavoris(myMedia);
             this.listMangas.push(myMedia);
           }
-          console.log(response.data);
           this.loading = false;
         })
         .catch(function(error) {
