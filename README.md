@@ -15,7 +15,8 @@ Pour la réalisation du site, nous avons utlisés l'[API Kitsu](https://kitsu.do
 
 ### Architecture du site
 #### Maquettes des pages
-** Mettre image croquis **
+![Image croquis](https://raw.githubusercontent.com/heg-web/projet-tabo_kevin_team/master/images/CroquisApp.jpg)
+
 #### Views
 - Home.vue : Page d'acceuil du site avec les meilleurs animes du moments.
 - Manga.vue : Page avec les meilleures mangas du moments.
