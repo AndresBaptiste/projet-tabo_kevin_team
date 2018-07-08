@@ -32,6 +32,22 @@ Pour la réalisation du site, nous avons utlisés l'[API Kitsu](https://kitsu.do
 #### Hiéarchies des views/components
 
 ## Problèmes / Solutions
+
+### Problème généraux
+
+#### Prise de connaissance de l'api. 
+Un grande partie du temps utilisé pour la réalisation du projet a été de maitriser l'api utilisée. Afin de pouvoir l'utiliser convenablement et connaître les fonctionnalitées qu'elle pouvait nous apporter, nous avons fait une multitude de tests et avions à disposition une documentation complète.
+
+#### Utilisation du Git par plusieurs personnes. 
+Dans le travail demandé, il nous a fallu utiliser le git à plusieurs, donc géré les conflits sur les diférents fichiers. Dans la mesure du possible, nous avont éviter de modifier le même fichier dans le même rush afin d'éviter les conflits.
+
+#### Connaissance de Vue.js et temps impoarti. 
+Dans la mesure ou nous avions peu de temps imparti pour réaliser le projet, nous avons séparé le travail en deux parties distinctes: 
+
+- l'apparence, la structure et le style du site. 
+- la manipulation des données et l'interaction avec l'api.
+
+chaque personne du groupe à été associé à l'une de ces deux tâches profitant des connaissances de l'un et de l'autre.
 ### Fonctionnalité de recherche
 Les éléments de la recherche sont intégrés dans notre menu bootstrap du fichier `App.vue`. Nous avons englobé notre bouton recherche par un composant `<router-link>` avec pour cible notre page `Recherche.vue` en lui passant en paramètre la valeur de la recherche qui nous récupérons ensuite dans notre page cible. 
 
