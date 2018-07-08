@@ -6,7 +6,7 @@ Dans le cadre du cours bloc 643-1.1 PROJET DE TECHNOLOGIES WEB, un projet doit �
 - Tabo Kidane
 
 ## TaKe Anime
-TaKe Anime est un site web qui offre aux internautes la possibilité de rechercher leurs animations japonaises préférées. Il offre la possibilité de rechercher un anime et de les ajouter à sa liste de favoris. Un top est également disponible vous permettant de trouver rapidement les meilleurs animes du moments.
+TaKe Anime est un site web qui offre aux internautes la possibilité de rechercher leurs animations japonaises préférées. Il offre la possibilité de rechercher un anime et de les ajouter à sa liste de favoris. Un top est également disponible afin de trouver rapidement les meilleurs animes du moments.
 
 Le site est réalisé avec les fameworks Vue.JS et Bootstrap.
 
@@ -30,12 +30,13 @@ Pour la réalisation du site, nous avons utlisés l'[API Kitsu](https://kitsu.do
 - ButtonFavorite.vue : Composant représentant un bouton pour ajouter/supprimer un anime/manga de nos favoris.
 
 #### Hiéarchies des views/components
+![Image hiéarchies](https://raw.githubusercontent.com/heg-web/projet-tabo_kevin_team/master/images/HierarchyComponents.png)
 
 ## Problèmes / Solutions
 ### Fonctionnalité de recherche
 Les éléments de la recherche sont intégrés dans notre menu bootstrap du fichier `App.vue`. Nous avons englobé notre bouton recherche par un composant `<router-link>` avec pour cible notre page `Recherche.vue` en lui passant en paramètre la valeur de la recherche qui nous récupérons ensuite dans notre page cible. 
 
-La recherche fonctionnait qu'une seule fois et seulement si nous étions sur une autre page que `Recherche.vue`. Il n'était plus possible de refaire appel à cette fonction une nouvelle fois de suite.
+Le problème est que la recherche fonctionnait qu'une seule fois et seulement si nous étions sur une autre page que `Recherche.vue`. Il n'était plus possible de refaire appel à cette fonction une nouvelle fois de suite.
 
 Pour résoudre ce problème, il a fallut intervenir sur plusieurs plans :
 
@@ -65,7 +66,7 @@ Pour résoudre ce problème, il a fallut intervenir sur plusieurs plans :
 
 > Documentation relative à l'option `watch` (https://fr.vuejs.org/v2/guide/computed.html#Observateurs)
 
-## Principales lecons apprises
+## Principales leçons apprises
 Nous avons appris à réaliser un site web monopage à l'aide du frameworks Vue.JS ainsi que le passage des paramètres en différents composants. L'utilisation d'une API et la manipulation de tableau d'objets également.
 
 Un des éléments important lors de la réalisation d'un site/application web, outre les fonctionnalités, est l'expérience utilisaeur. L'UX de notre site est un élément à ne pas négliger pour un informaticien de gestion. Le ressenti de l'utilisateur lors de la manipulation de notre site ou application web est aussi importante que les foncitonnalités en elles-mêmes.
