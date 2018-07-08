@@ -9,23 +9,23 @@
 				<li class="nav-item active">
 					<a>
 						<router-link to="/" class="nav-link" >
-							Anime 
+							              Anime               
 							<span class="sr-only">(current)</span>
 						</router-link>
 					</a>
 				</li>
 				<li class="nav-item"><router-link to="/manga" class="nav-link">Manga</router-link></li>
-				<li class="nav-item">
-					<router-link to="/favoris" class="nav-link" >
-						Favoris
-					</router-link> </li>
-					<li class="nav-item"><router-link to="/about" class="nav-link" >About</router-link></li>
-				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" placeholder="Search" type="text" v-model="search">
-				<router-link :to="{name:'recherche', params: {data: search}}"><button class="btn btn-secondary my-2 my-sm-0">Rechercher</button></router-link>
-				</form>
-			</div>
+				<li class="nav-item"><router-link to="/favoris" class="nav-link" >            Favoris          </router-link></li>
+				<li class="nav-item"><router-link to="/about" class="nav-link" >About</router-link></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" placeholder="Search" type="text" v-model="search">
+				<router-link :to="{name:'recherche', params: {data: search}}">
+					<button class="btn btn-secondary my-2 my-sm-0">Rechercher</button>
+				</router-link>
+			</form>
+		</div>
+
 
 
 </nav>
