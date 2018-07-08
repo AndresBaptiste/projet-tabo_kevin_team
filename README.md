@@ -30,7 +30,7 @@ Pour la réalisation du site, nous avons utlisés l'[API Kitsu](https://kitsu.do
 - ButtonFavorite.vue : Composant représentant un bouton pour ajouter/supprimer un anime/manga de nos favoris.
 
 #### Hiérarchies des views/components
-![Image hiéarchies](https://raw.githubusercontent.com/heg-web/projet-tabo_kevin_team/master/images/HierarchyComponents.png)
+![Image hiéarchies](https://raw.githubusercontent.com/heg-web/projet-tabo_kevin_team/master/images/HierarchyComponents.PNG)
 
 ## Problèmes / Solutions
 
