@@ -44,7 +44,6 @@ export default {
             myMedia.isFavoris = this.$root.isFavoris(myMedia);
             this.listAnimes.push(myMedia);
           }
-          console.log(response.data);
           this.loading = false;
         })
         .catch(function(error) {
