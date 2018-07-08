@@ -33,16 +33,17 @@ Pour la réalisation du site, nous avons utlisés l'[API Kitsu](https://kitsu.do
 ![Image hiéarchies](https://raw.githubusercontent.com/heg-web/projet-tabo_kevin_team/master/images/HierarchyComponents.png)
 
 ## Problèmes / Solutions
-### Problème généraux
+
+### Problèmes généraux
 
 #### Prise de connaissance de l'api. 
-Un grande partie du temps utilisé pour la réalisation du projet a été de aitriser l'api utilisée. Afin de pouvoir l'utiliser convenablement et onnaître les fonctionnalitées qu'elle pouvait nous apporter, nous avons fait ne multitude de tests et avions à disposition une documentation complète.
+Un grande partie du temps utilisé pour la réalisation du projet a été de maitriser l'api utilisée. Afin de pouvoir l'utiliser convenablement et connaître les fonctionnalitées qu'elle pouvait nous apporter, nous avons fait une multitude de tests et avions à disposition une documentation complète.
 
 #### Utilisation du Git par plusieurs personnes. 
-Dans le travail demandé, il nous a fallu utiliser le git à plusieurs, donc éré les conflits sur les diférents fichiers. Dans la mesure du possible, nous vont éviter de modifier le même fichier dans le même rush afin d'éviter les onflits.
+Dans le travail demandé, il nous a fallu utiliser le git à plusieurs, donc géré les conflits sur les diférents fichiers. Dans la mesure du possible, nous avont éviter de modifier le même fichier dans le même rush afin d'éviter les conflits.
 
 #### Connaissance de Vue.js et temps impoarti. 
-Dans la mesure ou nous avions peu de temps imparti pour réaliser le projet, ous avons séparé le travail en deux parties distinctes: 
+Dans la mesure ou nous avions peu de temps imparti pour réaliser le projet, nous avons séparé le travail en deux parties distinctes: 
 
 - l'apparence, la structure et le style du site. 
 - la manipulation des données et l'interaction avec l'api.
